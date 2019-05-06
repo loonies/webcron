@@ -1,0 +1,35 @@
+webcron
+=======
+
+Current release: 0.1.0-dev
+
+
+Description
+-----------
+
+Webcron is a systemd timer that calls remote URLs at defined time
+periods, basically acting as a web cron job service. Webcron is simple
+and easy to set up.
+
+
+Contributing
+------------
+
+Open an issue or send a pull request on the Github
+(http://github.com/loonies/webcron).
+
+
+Authors
+-------
+
+Maintainer:
+
+ - Miodrag Tokić
+
+
+Copyright
+---------
+
+Copyright (C) 2019 Miodrag Tokić.
+
+Released under the MIT License. See the LICENSE file for details.
