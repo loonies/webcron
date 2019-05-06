@@ -1,0 +1,10 @@
+[Unit]
+Description=Run webcron %i
+
+[Timer]
+OnCalendar=%i
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
