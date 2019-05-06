@@ -12,6 +12,41 @@ periods, basically acting as a web cron job service. Webcron is simple
 and easy to set up.
 
 
+Installation
+------------
+
+Requirements:
+
+ - systemd
+ - Bash compatible shell
+
+Installing:
+
+    make install
+
+Run 'make help' for more options.
+
+
+Documentation
+-------------
+
+Webcron requires a configuration file containing a list of URLs to call.
+Configuration files are read from `/etc/webcron` directory and are named
+by the time period they are run. URLs are listed one per line.
+
+For example, creating a daily cron job that will call `example.com`
+requires `/etc/webcron/daily.conf` file with one `https://example.com`
+URL entry and, enabled and started `webcron@daily.timer` systemd unit.
+
+Webcron will record the called URL HTTP status into systemd journal.
+Webcron doesn't support URL redirects and only HTTP 200 status is
+considered successfull.
+
+For easy set up, webcron already comes with empty configuration files
+named by systemd calendar event shorthands. Check `systemd.time(7)` for
+more information on allowed expressions.
+
+
 Contributing
 ------------
 
