@@ -1,0 +1,8 @@
+Version 0.1.0 (unreleased)
+--------------------------
+
+Initial release
+
+Webcron is a systemd timer that calls remote URLs at defined time
+periods, basically acting as a web cron job service. Webcron is simple
+and easy to set up.
