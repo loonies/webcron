@@ -2,9 +2,10 @@
 
 SHELL = /bin/sh
 
-bindir = /usr/bin
-etcdir = /etc/webcron
-sysdir = /usr/lib/systemd/system
+prefix ?=
+bindir  = $(prefix)/usr/bin
+etcdir  = $(prefix)/etc/webcron
+sysdir  = $(prefix)/usr/lib/systemd/system
 
 RM      = rm -f
 INSTALL = install
@@ -12,6 +13,9 @@ INSTALL = install
 .PHONY: help
 help:
 	@echo "Usage: make [<options>] [<target>]"
+	@echo ""
+	@echo "Options:"
+	@echo "  prefix=<path>  Set alternate install/uninstall path"
 	@echo ""
 	@echo "Targets:"
 	@echo "  help       Display help"
