@@ -24,6 +24,10 @@ help:
 
 .PHONY: install
 install:
+	$(INSTALL) -d -m 0755 $(bindir)
+	$(INSTALL) -d -m 0755 $(etcdir)
+	$(INSTALL) -d -m 0755 $(sysdir)
+
 	$(INSTALL) -m 0755 src/webcron $(bindir)
 	$(INSTALL) -m 0644 src/webcron@.service $(sysdir)
 	$(INSTALL) -m 0644 src/webcron@.timer $(sysdir)
