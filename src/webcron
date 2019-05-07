@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+readonly EXIT_SUCCESS=0
+readonly EXIT_EGENERAL=1
+readonly EXIT_EUSER=2
+
+readonly response_ok="200"
+readonly config="/etc/webcron/$1.conf"
+
+if [[ ! -f "$config" ]]; then
+    echo "Configuration file not found: $config"
+    exit $EXIT_EGENERAL
+fi
+
+while IFS='' read -r url || [[ -n "$url" ]]; do
+    response=$(curl -Isk -X GET "$url" | head -n 1 | cut -d$' ' -f2)
+
+    status="FAIL ($response)"
+    if [[ "$response" == "$response_ok" ]]; then
+        status="OK"
+    fi
+
+    echo "Calling: $url... $status"
+done < "$config"
+
+exit $EXIT_SUCCESS

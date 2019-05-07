@@ -1,0 +1,9 @@
+[Unit]
+Description=Webcron %i runner
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+StandardOutput=journal
+ExecStart=/usr/bin/webcron %i
