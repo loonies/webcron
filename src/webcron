@@ -13,7 +13,7 @@ if [[ ! -f "$config" ]]; then
 fi
 
 while IFS='' read -r url || [[ -n "$url" ]]; do
-    response=$(curl -Isk -X GET "$url" | head -n 1 | cut -d$' ' -f2)
+    response=$(curl -Is -X GET "$url" | head -n 1 | cut -d$' ' -f2)
 
     status="FAIL ($response)"
     if [[ "$response" == "$response_ok" ]]; then
